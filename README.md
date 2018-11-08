@@ -17,4 +17,3 @@ Playing game is a great way to pass the time. This one consists of color keys th
 * [GitHub Pages](https://sinfuls0ul.github.io/simon-game/)
 ### Mockups
 * [Wireframe](https://wireframepro.mockflow.com/view/Mdd6709e19488cbb05fa59fa0bc912d721539708976420#/page/e0be284783e4417fb945fec20eabd2ac)
-
