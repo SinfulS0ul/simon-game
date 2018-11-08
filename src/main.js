@@ -51,7 +51,7 @@ function check() {
     if (arr.length === randomColorArray.length) {
         if (arr.every(function (value, index) { return value === randomColorArray[index] })) {
             const audio = new Audio();
-            audio.src = 'Молодца!.mp3';
+            audio.src = 'src/Молодца!.mp3';
             audio.autoplay = true;
             $alertLine.innerHTML = 'Nice! ^~^';
             randomColorArray = [];
