@@ -9,6 +9,9 @@ Playing game is a great way to pass the time. This one consists of color keys th
 * Javascript
 * CSS3
 * HTML5
+* SCSS
+* Travis
+* Service Workers
 ### Teacher
 * [Teacher's GitHub link](https://github.com/dosandk)
 ### Front-end camp “Facebook” page
