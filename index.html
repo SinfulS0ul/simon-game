@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <div class="canv">
-        <div class="first-line">
-            <div class="circle red"></div>
-            <div class="circle blue"></div>
+    <div class="title">Simon Game</div>
+    <div class="app">
+        <div class="canv">
+            <div class="canv__top">
+                <div class="circle red"></div>
+                <div class="circle blue"></div>
+            </div>
+            <div class="canv__main">
+                <div class="circle yellow"></div>
+                <div class="central-menu">
+                    <div class="central-menu__taps-counter">
+                        <div>Taps: <span class="tap-count"></span></div>
+                    </div>
+                    <button class="central-menu__continue-button">Next Round</button>
+                </div>
+                <div class="circle green"></div>
+            </div>
+            <div class="canv__bottom">
+                <div class="circle orange"></div>
+                <div class="circle pink"></div>
+            </div>
+            <div class="canv__alert-info">
+                <p class="canv__alert-info__massage"></p>
+            </div>
         </div>
-        <div class="second-line">
-            <div class="circle yellow"></div>
-            <div class="circle green"></div>
-        </div>
-        <div class="third-line">
-            <button class="start-button">Start</button>
-            <button class="restart-button">Restart</button>
-            <p>Round: </p><p class="round"></p>
-            <p>Taps: </p><p class="tap-count"></p>
-        </div>
-        <div class="fourth-line">
-            <button class="mod-button easy">Easy</button>
-            <button class="mod-button hard">Hard</button>
-        </div>
-        <div class="fiwth-line">
-            <p class="alert-line"></p>
+        <div class="menu">
+            <div class="menu__round-counter">
+                <p class="menu__round-counter__round-text">Round: </p>
+                <p class="round"></p>
+            </div>
+            <button class="menu__start-button">New Game</button>
+            <div class="mode">
+                <div class="mode__info">Game mode</div>
+                <button class="mode__button easy">Easy</button>
+                <button class="mode__button hard">Hard</button>
+                <p class="mode__current-mode">
+            </div>
         </div>
     </div>
-    <script src="src/main.js"></script>
+    <script src="src/js/main.js"></script>
 </body>
+
 </html>
