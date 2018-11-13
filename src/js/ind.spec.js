@@ -28,7 +28,7 @@ test('should nullify values', () => {
     randomColorArray: [2, 3, 1],
     arr: [1, 6],
     waiting: true,
-  }
+  };
   restart.call(obj);
   expect(obj).toEqual({
     round: null,
@@ -42,14 +42,14 @@ test('should return true if arrays are equal', () => {
   const obj = {
     randColorArray: [1, 6, 1],
     arr: [1, 6, 1],
-  }
+  };
   expect(check.call(obj)).toEqual(true);
-})
+});
 
 test('should return false if waiting is true', () => {
   const obj = {
     round: 4,
     waiting: true,
-  }
+  };
   expect(startRound.call(obj)).not.toEqual(true);
-})
+});

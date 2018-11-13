@@ -29,7 +29,7 @@ let modeTimeout = null;
 const fadeUpArray = ['#fc3730', '#3ca5d6', '#fff243', '#46f56b', '#f09951', '#f538bc'];
 const fadeDownArray = ['#ff6f69', '#69d0ff', '#fff9a4', '#94f8a9', '#f5bb8c', '#f894da'];
 
-function colorFading($element, colorNumber) {
+function colorFading ($element, colorNumber) {
   $element.style.setProperty('--color', fadeUpArray[colorNumber]);
   $element.style.setProperty('--shadow', 20 + 'px');
   setTimeout(() => {
@@ -38,14 +38,14 @@ function colorFading($element, colorNumber) {
   }, modeTimeout / 4);
 }
 
-function getRandomColorArray(round) {
+function getRandomColorArray (round) {
   for (let i = 0; i < round; i++) {
     randomColorArray[i] = Math.floor(Math.random() * $colors.length);
   }
   return randomColorArray;
 }
 
-function restart() {
+function restart () {
   round = null;
   $roundText.innerHTML = round;
   randomColorArray = [];
@@ -54,14 +54,14 @@ function restart() {
   waiting = false;
 }
 
-function check() {
+function check () {
   $tapCount.textContent++;
   //console.log(arr);
   //console.log(randomColorArray);
   if (arr.length === randomColorArray.length) {
     if (arr.every(function (value, index) {
-        return value === randomColorArray[index];
-      })) {
+      return value === randomColorArray[index];
+    })) {
       const audio = new Audio();
       audio.src = 'src/sounds/Молодца!.mp3';
       audio.autoplay = true;
@@ -76,7 +76,7 @@ function check() {
   }
 }
 
-function startRound() {
+function startRound () {
   if (!waiting) {
     waiting = true;
     round++;
@@ -101,7 +101,7 @@ function startRound() {
   }
 }
 
-$start.addEventListener('click', () => {
+$start.addEventListener ('click', () => {
   restart();
   if (!modeTimeout) {
     modeTimeout = easyModeTimeout;
@@ -110,23 +110,23 @@ $start.addEventListener('click', () => {
   startRound();
 });
 
-$nextRound.addEventListener('click', () => {
+$nextRound.addEventListener ('click', () => {
   startRound();
 });
 
-$easyMode.addEventListener('click', () => {
+$easyMode.addEventListener ('click', () => {
   restart();
   modeTimeout = easyModeTimeout;
   $currentModeInfo.innerHTML = 'Current mode: Easy';
 });
 
-$hardMode.addEventListener('click', () => {
+$hardMode.addEventListener ('click', () => {
   restart();
   modeTimeout = hardModeTimeout;
   $currentModeInfo.innerHTML = 'Current mode: Hard';
 });
 
-$red.addEventListener('click', () => {
+$red.addEventListener ('click', () => {
   if (arr) {
     const colorNumber = 0;
     colorFading($red, colorNumber);
@@ -135,7 +135,7 @@ $red.addEventListener('click', () => {
   }
 });
 
-$blue.addEventListener('click', () => {
+$blue.addEventListener ('click', () => {
   if (arr) {
     const colorNumber = 1;
     colorFading($blue, colorNumber);
@@ -144,7 +144,7 @@ $blue.addEventListener('click', () => {
   }
 });
 
-$yellow.addEventListener('click', () => {
+$yellow.addEventListener ('click', () => {
   if (arr) {
     const colorNumber = 2;
     colorFading($yellow, colorNumber);
@@ -153,7 +153,7 @@ $yellow.addEventListener('click', () => {
   }
 });
 
-$green.addEventListener('click', () => {
+$green.addEventListener ('click', () => {
   if (arr) {
     const colorNumber = 3;
     colorFading($green, colorNumber);
@@ -162,7 +162,7 @@ $green.addEventListener('click', () => {
   }
 });
 
-$orange.addEventListener('click', () => {
+$orange.addEventListener ('click', () => {
   if (arr) {
     const colorNumber = 4;
     colorFading($orange, colorNumber);
@@ -171,7 +171,7 @@ $orange.addEventListener('click', () => {
   }
 });
 
-$pink.addEventListener('click', () => {
+$pink.addEventListener ('click', () => {
   if (arr) {
     const colorNumber = 5;
     colorFading($pink, colorNumber);

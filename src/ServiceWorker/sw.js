@@ -4,9 +4,9 @@ const CACHE_NAME = 'network-or-cache-v1';
 self.addEventListener('install', event => event.waitUntil(
   caches.open(CACHE_NAME).then(cache => cache.addAll(
     ['/src/js/main.js',
-     '/src/css/style.css',
-     '/index.html',
-     '/src/sounds/Молодца!.mp3']))
+      '/src/css/style.css',
+      '/index.html',
+      '/src/sounds/Молодца!.mp3']))
 ));
 
 self.addEventListener('fetch', event => {
