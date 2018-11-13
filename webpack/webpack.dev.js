@@ -1,20 +1,21 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: [
-    './src/js/main.js'
+    './src/js/main.js',
+    './src/scss/style.scss'
   ],
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../dist')
   },
   devtool: 'cheap-module-eval-source-map',
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js?$/,
         exclude: [/(node_modules)/, /\.spec\.js$/],
         include: [
@@ -24,30 +25,30 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader' // creates style nodes from JS strings
-          },
-          {
-            loader: 'css-loader', // translates CSS into CommonJS
-            query: {
-              modules: true,
-              camelCase: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]'
-            }
-          },
-          {
-            loader: 'sass-loader' // compiles Sass to CSS
-          }
-        ]
+        use: ExtractTextPlugin.extract({
+          use: [
+              {
+                  loader: 'css-loader',
+                  options: { sourceMap: true }
+              },
+              {
+                  loader: 'sass-loader',
+                  options: { sourceMap: true }
+              }
+          ],
+          fallback: 'style-loader',
+      })
       }
     ]
   },
   plugins: [
+    new ExtractTextPlugin(
+      '[name].css'
+    ),
     new HtmlWebpackPlugin({
       template: path.resolve('./index.html')
     }),
-      new WorkboxPlugin.GenerateSW(),
+    new WorkboxPlugin.GenerateSW(),
   ],
   devServer: {
     contentBase: path.join(__dirname, '../'),
