@@ -1,3 +1,9 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('src/ServiceWorker/sw.js');
+  });
+}
+
 const $red = document.querySelector('.red');
 const $blue = document.querySelector('.blue');
 const $yellow = document.querySelector('.yellow');
