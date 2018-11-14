@@ -12,10 +12,13 @@ Playing game is a great way to pass the time. This one consists of color keys th
 * SCSS
 * Travis
 * Service Workers
+* Webpack
 ### Teacher
 * [Teacher's GitHub link](https://github.com/dosandk)
 ### Front-end camp “Facebook” page
 * [Facebook group link](https://www.facebook.com/groups/270300106928894/)
+### Contributing
+* [Contribution guide](https://github.com/SinfulS0ul/simon-game/blob/master/CONTRIBUTING.md)
 ### Demo App
 * [GitHub Pages](https://sinfuls0ul.github.io/simon-game/)
 ### Mockups
