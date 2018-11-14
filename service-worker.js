@@ -4,7 +4,9 @@ self.addEventListener('install', function (e) {
   e.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
       return cache.addAll([
-        '/',
+        '/simon-game/main.js',
+        '/simon-game/main.css',
+        '/simon-game/index.html'
       ]);
     })
   );
