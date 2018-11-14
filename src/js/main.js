@@ -1,5 +1,5 @@
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
+  navigator.serviceWorker.register('/simon-game/sw.js');
 }
 
 const $red = document.querySelector('.red');
