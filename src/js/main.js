@@ -1,7 +1,5 @@
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('src/ServiceWorker/sw.js');
-  });
+  navigator.serviceWorker.register('/sw.js');
 }
 
 const $red = document.querySelector('.red');
