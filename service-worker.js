@@ -1,13 +1,14 @@
 const CACHE_NAME = 'network-or-cache-v1';
 
+
+const urlsToCache = [
+  '/'
+]
+
 self.addEventListener('install', function (e) {
   e.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll([
-        '/simon-game/main.js',
-        '/simon-game/main.css',
-        '/simon-game/index.html'
-      ]);
+      return cache.addAll(urlsToCache);
     })
   );
 });
@@ -15,22 +16,22 @@ self.addEventListener('install', function (e) {
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
-      .then(cacheResponse => {
-        const fetchRequest = event.request.clone();
+    .then(cacheResponse => {
+      const fetchRequest = event.request.clone();
 
-        return fetch(fetchRequest)
-          .then(response => {
-            if (response && response.status === 200
-                || response &&  response.type === 'basic') {
-              const responseToCache = response.clone();
+      return fetch(fetchRequest)
+        .then(response => {
+          if (response && response.status === 200 ||
+            response && response.type === 'basic') {
+            const responseToCache = response.clone();
 
-              caches.open(CACHE_NAME)
-                .then(cache => cache.put(event.request, responseToCache));
-            }
+            caches.open(CACHE_NAME)
+              .then(cache => cache.put(event.request, responseToCache));
+          }
 
-            return response;
-          })
-          .catch(() => cacheResponse);
-      })
+          return response;
+        })
+        .catch(() => cacheResponse);
+    })
   );
 });

@@ -1,6 +1,14 @@
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/simon-game/service-worker.js');
+function serviceWorkerRegistr (mode) {
+  if ('serviceWorker' in navigator) {
+    if (mode === 'development')
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    else
+      navigator.serviceWorker.register('/simon-game/service-worker.js');
+  }
 }
+serviceWorkerRegistr(process.env.NODE_ENV);
 
 const $red = document.querySelector('.red');
 const $blue = document.querySelector('.blue');
@@ -54,8 +62,6 @@ function restart () {
 
 function check () {
   $tapCount.textContent++;
-  //console.log(arr);
-  //console.log(randomColorArray);
   if (arr.length === randomColorArray.length) {
     if (arr.every(function (value, index) {
       return value === randomColorArray[index];
