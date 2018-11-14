@@ -4,11 +4,7 @@ self.addEventListener('install', function (e) {
   e.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
       return cache.addAll([
-        './',
-        './src/js/main.js',
-        './src/css/style.css',
-        './src/sounds/Молодца!.mp3',
-        './index.html'
+        '/',
       ]);
     })
   );
