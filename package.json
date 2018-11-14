@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --config ./webpack/webpack.dev.js --open",
     "test": "jest",
     "build": "webpack --mode=production -p --config ./webpack/webpack.dev.js",
+    "watch": "webpack --watch",
     "lint": "eslint ./src",
     "lint:watch": "esw --watch",
     "stylelint": "stylelint './src/**/*.css'",
