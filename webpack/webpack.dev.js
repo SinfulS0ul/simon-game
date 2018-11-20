@@ -1,22 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: [
-    './src/js/main.js',
-    './src/scss/style.scss'
+    './src/js/main.js'
   ],
   output: {
-    filename: '[name].js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist')
   },
   devtool: 'cheap-module-eval-source-map',
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.js?$/,
         exclude: [/(node_modules)/, /\.spec\.js$/],
         include: [
@@ -26,34 +24,30 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: [{
-              loader: 'css-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true
-              }
+        use: [
+          {
+            loader: 'style-loader' // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader', // translates CSS into CommonJS
+            query: {
+              modules: true,
+              camelCase: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]'
             }
-          ],
-          fallback: 'style-loader',
-        })
+          },
+          {
+            loader: 'sass-loader' // compiles Sass to CSS
+          }
+        ]
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin(
-      '[name].css'
-    ),
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: path.resolve('./index.html')
     }),
-    new WorkboxPlugin.GenerateSW(),
+      new WorkboxPlugin.GenerateSW(),
   ],
   devServer: {
     contentBase: path.join(__dirname, '../'),

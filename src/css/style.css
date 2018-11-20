@@ -5,6 +5,10 @@ body {
   color: rgb(24, 59, 128);
 }
 
+.menu{
+  min-width: 320px;
+}
+
 button {
   cursor: pointer;
   border-radius: 50px;

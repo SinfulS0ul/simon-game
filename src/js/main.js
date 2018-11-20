@@ -35,6 +35,14 @@ let modeTimeout = null;
 const fadeUpArray = ['#fc3730', '#3ca5d6', '#fff243', '#46f56b', '#f09951', '#f538bc'];
 const fadeDownArray = ['#ff6f69', '#69d0ff', '#fff9a4', '#94f8a9', '#f5bb8c', '#f894da'];
 
+const circleClick = (colorNumber, $circleElement) => {
+  if (arr){
+    colorFading($circleElement, colorNumber);
+    arr.push(colorNumber);
+    check();
+  }
+};
+
 function colorFading ($element, colorNumber) {
   $element.style.setProperty('--color', fadeUpArray[colorNumber]);
   $element.style.setProperty('--shadow', 20 + 'px');
@@ -128,55 +136,31 @@ $hardMode.addEventListener ('click', () => {
 });
 
 $red.addEventListener ('click', () => {
-  if (arr) {
-    const colorNumber = 0;
-    colorFading($red, colorNumber);
-    arr.push(0);
-    check();
-  }
+  const colorNumber = 0;
+  circleClick(colorNumber, $red);
 });
 
 $blue.addEventListener ('click', () => {
-  if (arr) {
-    const colorNumber = 1;
-    colorFading($blue, colorNumber);
-    arr.push(1);
-    check();
-  }
+  const colorNumber = 1;
+  circleClick(colorNumber, $blue);
 });
 
 $yellow.addEventListener ('click', () => {
-  if (arr) {
-    const colorNumber = 2;
-    colorFading($yellow, colorNumber);
-    arr.push(2);
-    check();
-  }
+  const colorNumber = 2;
+  circleClick(colorNumber, $yellow);
 });
 
 $green.addEventListener ('click', () => {
-  if (arr) {
-    const colorNumber = 3;
-    colorFading($green, colorNumber);
-    arr.push(3);
-    check();
-  }
+  const colorNumber = 3;
+  circleClick(colorNumber, $green);
 });
 
 $orange.addEventListener ('click', () => {
-  if (arr) {
-    const colorNumber = 4;
-    colorFading($orange, colorNumber);
-    arr.push(4);
-    check();
-  }
+  const colorNumber = 4;
+  circleClick(colorNumber, $orange);
 });
 
 $pink.addEventListener ('click', () => {
-  if (arr) {
-    const colorNumber = 5;
-    colorFading($pink, colorNumber);
-    arr.push(5);
-    check();
-  }
+  const colorNumber = 5;
+  circleClick(colorNumber, $pink);
 });

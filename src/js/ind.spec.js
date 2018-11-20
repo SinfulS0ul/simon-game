@@ -1,15 +1,4 @@
-import {
-  getRandomColorArray
-} from './ind.js';
-import {
-  restart
-} from './ind.js';
-import {
-  check
-} from './ind.js';
-import {
-  startRound
-} from './ind.js';
+import { getRandomColorArray, restart, check, startRound } from './ind';
 
 test('should return array of colors', () => {
   const round = 4;
